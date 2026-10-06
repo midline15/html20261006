@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* 바깥쪽 여백 margin, 안쪽 여백 padding */
+            /* top, bottom, left, right 개별 적용이 가능하다. */
+            /* [top, bottom], [left, right] 2개씩 적용도 가능 */
+            /* 한번에 적용도 가능 */
+
+            /* 개별적용 */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+
+            margin: 20px 10px 10px 30px; /* top, right, bottom, left */
+
+            /* 2개씩 적용 */
+            margin: 30px 20px; /* top/bottom, left/right */
+
+            /* 한번에 적용 */
+            margin: 30px;
+        }
+        .box{
+            color: white;
+            width: 200px;
+            height: 200px;
+            /* border-width: 5px;
+            border-style: solid;
+            border-color: black; */
+            border: 5px solid black;
+            text-align: center; /* 수평 가운데 정렬 */
+            line-height: 200px; /* 수직 가운데 정렬. 한줄짜리 */
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+        .bg-orange{
+            background-color: orange;
+        }
+        .pd{
+            padding: 40px 10px;
+        }
+        .radius{
+            border-radius: 40%;
+        }
+        .shadow{
+            box-shadow: 3px 3px 3px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box bg-blue radius shadow">box1</div>
+    <div class="box bg-orange pd">box2</div>
+</body>
+
+</html>
