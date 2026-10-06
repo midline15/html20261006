@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>회원가입</legend>
+        <!-- input태그의 기본 타입은 text (생략가능) -->
+        <div>
+            <label>아이디 : <input type="text" autofocus placeholder="아이디를 입력하세요"></label>
+            <input type="button" value="중복체크">
+        </div>
+        <div>
+            <label>비밀번호 : <input type="password" placeholder="비밀번호를 입력하세요"></label>
+        </div>
+        <div>
+            <!-- 나중에 정규식으로 대체 -->
+            <label>이메일 : <input type="email" placeholder="이메일을 입력하세요"></label>
+        </div>
+        <div>
+            성별 :
+            <label><input type="radio" name="gender" value="male" checked>남</label>
+            <label><input type="radio" name="gender" value="female">여</label>
+        </div>
+        <div>
+            취미 :
+            <label><input checked type="checkbox" name="hobby" value="coding">코딩</label>
+            <label><input type="checkbox" name="hobby" value="game">게임</label>
+            <label><input checked type="checkbox" name="hobby" value="reading">독서</label>
+            <label><input type="checkbox" name="hobby" value="movie">영화</label>
+            <label><input type="checkbox" name="hobby" value="music">음악</label>
+        </div>
+        <div>
+            프로필 이미지 :
+            <input type="file" accept="image/*" multiple>
+        </div>
+
+        <div>
+            나이대 :
+            <select name="age">
+                <option> :: 선택 ::</option>
+                <option value="10">10대</option>
+                <option value="20">20대</option>
+                <option value="30">30대</option>
+                <option value="40">40대</option>
+                <option value="50">50대</option>
+                <option value="60">60대</option>
+            </select>
+        </div>
+
+        <div>
+            자기소개 :
+            <div><textarea rows="4" cols="40" placeholder="자기소개를 입력하세요"></textarea></div>
+        </div>
+
+        <div>
+            <!-- submit과 reset은 나중에 from 태그와 연계해서 사용(jsp) -->
+            <!-- input 버튼과 버튼태그는 큰 차이 없음 -->
+            <input type="submit">
+            <input type="button" value="회원가입">
+            <button>회원가입</button>
+            <input type="reset">
+            
+        </div>
+    </fieldset>
+</body>
+
+</html>
