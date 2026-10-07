@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .top-menu{
+        display: inline-block;
+    }
+    .main-menu{
+        background-color: cadetblue;
+        color: white;
+        width: 120px;
+        padding: 10px;
+        font-weight: bold;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+    .sub-menu{
+        background-color: beige;
+        width: 120px;
+        box-sizing: border-box;
+        display: none;
+    }
+    .top-menu:hover .sub-menu{
+        display: block;
+    }
+    .sub-menu a{
+        display: block;
+        padding:10px;
+        cursor: pointer;
+    }
+    .sub-menu a:hover{
+        background-color: bisque;
+    }
+</style>
+<body>
+    <div class="top-menu">
+        <div class="main-menu">Dropdown</div>
+        <div class="sub-menu">
+            <a href="">menu1</a>
+            <a href="">menu2</a>
+            <a href="">menu3</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 포지션의 default값은 static
+            static 은 태그 특징에 맞게 있어야할 위치에 위치되는걸 의미 */
+        div {
+            width: 150px;
+            height: 150px;
+            border: 2px solid black;
+            text-align: center;
+            line-height: 150px;
+        }
+        .box1{
+            background-color: antiquewhite;
+        }
+        /* relative는 연제 있어야할 위치를 기준으로
+            top,bottom, left, right 값을 통해서 위치조정 */
+        .box2{
+            background-color: aqua;
+            position: relative;
+            top: 30px;
+            left: 50px;
+        }
+        /* fixed 는 브라우저 좌표기준 */
+        /* 스크롤 이동해도 위치는 고정 */
+        .box3{
+            background-color: blueviolet;
+            position: fixed;
+            top: 100px;
+            right: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+    <p style="margin: 5000px;"></p>
+
+</body>
+</html>

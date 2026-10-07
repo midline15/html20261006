@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 onclick="fnChange()" style="color: orange; font-style: italic; cursor: pointer;" id="txt">JAVASCRIPT
+        재밌다~~~~~~~~~~</h1>
+</body>
+
+</html>
+<script>
+    function fnChange() {
+        let obj = document.querySelector(`#txt`);
+        console.log(obj.style.color)
+        if (obj.style.color == "red") {
+            obj.style.color = "orange";
+            obj.style.fontStyle = "italic";
+        } else {
+            obj.style.color = "red";
+            obj.style.fontStyle = "normal";
+        }
+    }
+</script>
