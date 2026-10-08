@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            background-image: url('../images/03.jpg');
+            /* background-size: 300px 300px; */
+            background-size: contain; 
+            /* contain 이미지가 잘리지 않게 최대한 비율을 유지하면서 크기를 맞춘다 */
+            /* cover 가로,세로를 모두 채우는게 목적. 비율을 유지.잘릴 수 있음 */
+            /* 빈 공간은 생기지 않는다. */
+            border-radius: 50%;
+        }
+        .box:hover{
+            background-image: url('../images/02.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

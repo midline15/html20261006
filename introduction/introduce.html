@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<title>온라인 프로필</title>
+	<meta charset="utf-8">
+    <style>
+        #container{
+            width: 1000px;
+            min-height: 100vh;
+            margin: 10px;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        aside{
+            width: 300px;
+            text-align: center;
+            background-color: #4a6cf7;
+            color: white;
+        }
+        #main{
+            width: 700px;
+            box-sizing: border-box;
+            padding: 30px;
+            background-color: white;
+        }
+        img{
+            width: 70%;
+            border: 2px solid white;
+            border-radius: 50%;
+            margin: 30px;
+        }
+        .subtitle{
+            border-left: 5px solid #4a6cf7;
+            padding-left: 5px;
+        }
+        table,tr,th,td{
+            padding: 10px 20px;
+            border: 2px solid #eee;
+            border-collapse: collapse;
+        }
+        thead{
+            color: white;
+            background-color: #4a6cf7;
+        }
+        aside>div{
+            margin: 50px 10px;
+        }
+        #detail{
+            font-size: 10px;
+        }
+        a{
+            background-color: white;
+            text-decoration: none;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+    </style>
+  
+</head>
+
+<body style="background-color: darkgray;">
+    <div id="container">
+        <!-- 사이드바 -->
+        <aside>
+            <div id="namecard">
+                <img src="01.jpg" alt="">
+                <h1>Hong Gildong</h1>    
+                <p>프로그래밍 재밌다</p>
+            </div>
+            <div id="detail">
+                <p>Incheon, Korea</p>
+                <p>test@naver.com</p>                                 
+            </div>
+            <div id="sns">
+                <h2>SNS</h2>
+                <h3><a href="#">클릭!</a></h3>
+            </div>           
+        </aside>
+        <div id="main">
+            <section>
+                <h2 class="subtitle">자기소개</h2>
+                <p><mark>프로그래밍</mark>에 관심이 많습니다. <br>현재 열심히 공부하며 코딩 중!</p>
+            </section>
+
+            <!-- 경력 -->
+            <section>
+                <h2 class="subtitle">Experience</h2>
+                <ul>
+                    <li>프론트엔드
+                        <ul>
+                            <li>HTML/CSS/JAVASCRIPT </li>
+                            <li>웹 페이지 잘 만든다 </li>
+                            <li>다 잘함</li> 
+                        </ul>
+                    </li>
+                    <li>백엔드
+                        <ul>
+                            <li>자바 잘함 </li>
+                            <li>오라클 더 잘함</li>
+                        </ul>                        
+                    </li>
+                </ul>             
+            </section>
+
+            <!-- 숙련도 -->
+            <section>
+                <h2 class="subtitle">보유 기술</h2>
+                <!-- <li style="list-style: none;">  -->
+                    <ul>
+                        <li>자바 </li>
+                        <li>오라클</li>
+                    </ul>                        
+                <!-- </li> -->
+            </section>
+
+            <!-- 학력 -->
+            <section>
+                <h2 class="subtitle">Education</h2>
+                <table>
+                  <caption>학력 사항</caption>
+                  <thead>
+                      <tr>
+                          <th>출신학교</th>
+                          <th>전공</th>
+                          <th>기간</th>
+                          <th>구분</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>좋은대학교</td>
+                          <td>좋은학과</td>
+                          <td>2010.3 ~ 2013.2</td>
+                          <td>졸업</td>
+                      </tr>
+                      <tr>
+                          <td>꽤좋은고등학교</td>
+                          <td> - </td>
+                          <td>2007.3 ~ 2009.2</td>
+                          <td>졸업</td>
+                      </tr>
+                  </tbody>
+                </table>
+            </section>
+        </div>        
+    </div>
+</body>
+</html>

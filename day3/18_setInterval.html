@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="result"></div>
+</body>
+
+</html>
+<script>
+    let i = 1;
+    let result = document.querySelector('#result')
+    let text = "";
+
+    setInterval(() => {
+        text += i + " ";
+        result.innerHTML = text;
+        i++;
+
+        if (i == 11) {
+            i = 1;
+            text = "";
+        }
+    }, 500);
+
+    setInterval(() => {
+       console.log(i) 
+    }, 500);
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            /* width: 800px; */
+            border: 2px solid black;
+            background-color: #eee;
+            display: flex;
+        }
+
+        .box {
+            width: 100px;
+            margin: 10px;
+            background-color: aqua;
+            text-align: center;
+        }
+
+        .order1 {
+            /* 왼쪽정렬. 디폴트 */
+            justify-content: flex-start;
+        }
+        .order2 {
+            /* 오른쪽정렬 */
+            justify-content: flex-end;
+        }
+        .order3 {
+            /* 가운데정렬 */
+            justify-content: center;
+        }
+        .order4 {
+            /* 양쪽정렬 */
+            justify-content: space-between;
+        }
+        .order5 {
+            /* 끝에 간격50퍼 */
+            justify-content: space-around;
+        }
+        .order6 {
+            /* 끝에도 간격 */
+            justify-content: space-evenly;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" class="order5">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+    </div>
+</body>
+
+</html>
