@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <label><input type="checkbox" name="subject" value="java">자바</label>
+        <label><input type="checkbox" name="subject" value="oracle">오라클</label>
+        <label><input type="checkbox" name="subject" value="html">html</label>
+        <label><input type="checkbox" name="subject" value="jquery">jquery</label>
+        <button onclick="fnTest()">클릭</button>
+    </div>
+    <hr>
+    <div id="images">
+        
+    </div>
+</body>
+</html>
+<script>
+    function fnTest(){
+
+        let list = document.querySelectorAll('input[name="subject"]:checked');
+        let images = document.querySelector('#images');
+        images.innerHTML="";
+        for (let i = 0; i < list.length; i++) {
+            images.innerHTML += `<img src="../images/${list[i].value}.jpg">`;
+            
+        }
+    }
+</script>

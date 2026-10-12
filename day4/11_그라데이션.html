@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+
+        }
+        .grad1{
+            background: orange;/* 그라데이션을 지원해주지 않는 브라우저에게 보여주는 색상 */
+            background: radial-gradient(white, orange, purple)
+        }
+        .grad2{
+            background: orange;
+            background: radial-gradient(circle at 150px 50%, white, orange, purple)
+        }
+        .grad3{
+            background: orange;/* 그라데이션을 지원해주지 않는 브라우저에게 보여주는 색상 */
+            background: radial-gradient(white 20% , orange 70%, purple)
+        }
+    </style>
+</head>
+<body>
+    <div class="grad3"></div>
+</body>
+</html>

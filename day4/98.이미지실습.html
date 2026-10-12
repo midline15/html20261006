@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <label ><input type="radio" name="subject" onclick="fnTest()" value="java">자바</label>
+        <label ><input type="radio" name="subject" onclick="fnTest()" value="oracle">오라클</label>
+        <label ><input type="radio" name="subject" onclick="fnTest()" value="html">html</label>
+        <label ><input type="radio" name="subject" onclick="fnTest()" value="jquery">자바스크립트</label>
+        <hr>
+        <label ><input type="radio" name="subject" onclick="fnTest1('java')">java</label>
+        <label ><input type="radio" name="subject" onclick="fnTest1('oracle')">oracle</label>
+        <label ><input type="radio" name="subject" onclick="fnTest1('html')">html</label>
+        <label ><input type="radio" name="subject" onclick="fnTest1('jquery')">jquery</label>
+        <hr>
+        <img src="" id="image">
+    </div>
+</body>
+</html>
+<script>
+    function fnTest(){
+        let obj = document.querySelector('input[name="subject"]:checked').value;
+        let image = document.querySelector('#image');
+        image.src=`../images/${obj}.jpg`;
+    }
+    function fnTest1(subject){
+        image.src=`../images/${subject}.jpg`;
+    }
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>과목 목록</h1>
+    <h3 id="js">자바스크립트</h3>
+    <hr>
+    <div id="list">
+        <p id="java">자바</p>
+        <p id="oracle" style="color: blue;">오라클</p>
+        <p id="html">html</p>
+    </div>
+    <hr>
+    <!-- 선택한노드 안에 마지막 자식노드로 -->
+    <button onclick="fnAppend()">appendChild</button>
+    <!-- 선택한노드 안에서 원하는 노드 앞에 -->
+    <button onclick="fnBefore()">insertBefore</button>
+    <!-- 태그 만들기 -->
+    <button onclick="fnCreateElement()">createNode</button>
+    <!-- 속성 만들기 -->
+    <button onclick="fnCreateAttribute()">createAttribute</button>
+    <!-- 노드 제거 -->
+    <button onclick="fnRemoveNode()">removeChild</button>
+    <!-- 속성 제거 -->
+    <button onclick="fnRemoveAttr()">removeAttribute</button>
+    <!-- 노드 복사 -->
+    <button onclick="fnCloneNode()">cloneNode</button>
+</body>
+
+</html>
+<script>
+    function fnAppend() {
+        let list = document.querySelector('#list');
+        let js = document.querySelector('#js');
+        list.appendChild(js);
+    }
+
+    function fnBefore() {
+        let list = document.querySelector('#list');
+        let oracle = document.querySelector('#oracle');
+        let js = document.querySelector('#js');
+        list.insertBefore(js, oracle);
+    }
+
+    function fnCreateElement() {
+        let list = document.querySelector('#list');
+        let react = document.createElement('p'); // <p></p>
+        react.innerHTML = 'React.js'
+        list.appendChild(react);
+    }
+
+    function fnCreateAttribute() {
+        let list = document.querySelector('#list');
+        let react = document.createElement('p'); // <p></p>
+        react.innerHTML = 'React.js'
+
+        let style = document.createAttribute("style"); // <p style=""></p>
+        style.value = 'color: blue; font-weight: bold;'
+        react.setAttributeNode(style);
+
+        list.appendChild(react);
+    }
+    function fnRemoveNode() {
+        let list = document.querySelector('#list');
+        let oracle = document.querySelector('#oracle');
+        list.removeChild(oracle);
+    }
+    function fnRemoveAttr() {
+        let oracle = document.querySelector('#oracle');
+        oracle.removeAttribute('style');
+    }
+    function fnCloneNode() {
+        let list = document.querySelector('#list');
+        let js = document.querySelector('#js');
+        list.appendChild(js.cloneNode(true));
+    }
+</script>

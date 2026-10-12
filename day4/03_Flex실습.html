@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #e8e3e3;
+        }
+
+        #container {
+            max-width: 1000px;
+            margin: 20px auto;
+
+        }
+
+        #header {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #logo {
+            font-size: 30px;
+            font-weight: bold;
+
+        }
+
+        #menu {
+            display: flex;
+        }
+
+        #menu a {
+            text-decoration: none;
+            color: black;
+            background-color: #eee;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #menu a:hover {
+            background-color: #ccc;
+        }
+
+        #main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* flex요소들의 간격 */
+            gap: 20px;
+        }
+
+        .card {
+            width: 300px;
+            height: 500px;
+            margin: 10px;
+            background-color: white;
+            box-sizing: border-box;
+            padding: 10px;
+            position: relative;
+        }
+
+        .card img {
+
+            width: 280px;
+            height: 280px;
+        }
+
+        .card button {
+            width: 280px;
+            height: 40px;
+            position: absolute;
+            bottom: 10px;
+            background-color: #003cff;
+            color: #ffffff;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 0px;
+        }
+        .card div{
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="logo">굿쇼핑몰</div>
+            <div id="menu">
+                <!-- href="#" 최상단 -->
+                <a href="#">장바구니</a>
+                <!-- href="javascript:;"  아무반응없음-->
+                <a href="javascript:;">마이페이지</a>
+                <a href="">로그아웃</a>
+            </div>
+        </div>
+        <div id="main">
+            <div class="card">
+                <img src="../images/01.jpg">
+                <h2>미미미미</h2>
+                <div>ㅁㅍㄴㅇㄻㄴㅇㄻㄴㅇㄹASDASDFADFASㅇ뤄ㅜ1ㅐㅑㅕㅕ3ㅜ91ㅜ991U932ㅕF1NUI1NUF1</div>
+                <button>구매하기</button>
+            </div>
+            <div class="card">
+                <img src="../images/02.jpg">
+                <h2>미미미미</h2>
+                <div>ㅁㅍㄴㅇㄻㄴㅇㄻㄴㅇㄹ</div>
+                <button>구매하기</button>
+            </div>
+            <div class="card">
+                <img src="../images/03.jpg">
+                <h2>미미미미</h2>
+                <div>ㅁㅍㄴㅇㄻㄴㅇㄻㄴㅇㄹ</div>
+                <button>구매하기</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

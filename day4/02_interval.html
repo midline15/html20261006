@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 500px;
+            margin: 20px auto;
+
+        }
+
+        #time {
+            text-align: center;
+            font-weight: bold;
+            color: blue;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="time"></div>
+    </div>
+</body>
+
+</html>
+<script>
+    let obj = document.querySelector('#time');
+    setInterval(() => {
+        let datetime = new Date();
+        let hh = datetime.getHours() < 10 ? '0'+ datetime.getHours() : datetime.getHours();
+        let mi = datetime.getMinutes();
+        let ss = datetime.getSeconds();
+        if(mi <10 ){
+            mi = '0'+mi;
+        }
+        if(ss <10 ){
+            ss = '0'+ss;
+        }
+        obj.innerHTML = `${hh}:${mi}:${ss}`;
+    }, 1000)
+</script>

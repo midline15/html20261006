@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        th,
+        td {
+            border: 2px solid black;
+            padding: 5px 10px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="contents"></div>
+    <div>
+        <button onclick="fnCreateTable()">테이블 생성</button>
+    </div>
+</body>
+
+</html>
+<script>
+    function fnCreateTable() {
+        let table = document.createElement('table');
+        for (let i = 0; i < 4; i++) {
+            let row = document.createElement('tr');
+            for (let j = 1; j < 5; j++) {
+                let col = document.createElement('td');
+                col.innerHTML = j + (i * 4);
+                row.appendChild(col);
+            }
+            table.appendChild(row);
+        }
+        let contents = document.querySelector('#contents');
+        contents.appendChild(table);
+    }
+</script>

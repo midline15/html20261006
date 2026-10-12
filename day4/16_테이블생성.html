@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th, td {
+            border: 2px solid black;
+            padding: 5px 10px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="contents"></div>
+    <div>
+        <button onclick="fnCreateTable()">테이블 생성</button>
+    </div>
+</body>
+</html>
+<script>
+    function fnCreateTable(){
+        // 1. table 태그 생성
+        let table = document.createElement('table');
+
+        // 2. tr 태그 필요한 수만큼
+        let tr = document.createElement('tr');
+
+        // 3. td 태그 
+        let td1 = document.createElement('td');
+        td1.innerHTML = '1';
+        let td2 = document.createElement('td');
+        td2.innerHTML = '2';
+
+        // 4. td 태그 tr태그에 넣기
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+
+        // 5. tr태그 table 태그에 넣기
+        table.appendChild(tr);
+
+        let contents = document.querySelector('#contents');
+        contents.appendChild(table);
+    }
+</script>
