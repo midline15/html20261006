@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid 실습</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+
+        .box {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px #eee;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        #container {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: 80px minmax(500px, auto) 150px;
+            grid-template-areas:
+                "header header"
+                "side contents"
+                "footer footer";
+        }
+
+        #header {
+            background-color: #e3ecf2;
+            color: white;
+            grid-area: header;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #side {
+            background-color: white;
+            color: black;
+            grid-area: side;
+        }
+
+        #contents {
+            background-color: #ccc;
+            box-shadow: none;
+            padding: 20px;
+            grid-area: contents;
+        }
+
+        #footer {
+            background-color: #45b7d1;
+            color: white;
+            grid-area: footer;
+        }
+
+        #contents {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 250px);
+            grid-auto-rows: 120px;
+            gap: 20px;
+        }
+
+        .widget {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 3px 3px 3px #ccc;
+        }
+
+        .word {
+            margin-top: 20px;
+        }
+
+        #search-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 5px;
+            height: max-content;
+        }
+
+        #search {
+            border: none;
+        }
+
+        /* 크기 작아졌을 때 처리 */
+        @media (max-width: 768px) {
+            #container {
+                grid-template-columns: subgrid;
+                grid-template-rows: 150px 150px auto 150px;
+                grid-template-areas:
+                    "header"
+                    "side"
+                    "contents"
+                    "footer";
+            }
+
+            #contents {
+                display: grid;
+                grid-template-columns: auto;
+                /* grid-template-rows: auto; */
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <div class="box" id="header">
+            <div style="color: #03cf5d; font-size: 28px; font-family: sans-serif; font-weight: 900;">naver</div>
+            <form id="search-form">
+                <input type="search" id="search" placeholder="검색어를 입력하세요.">
+                <button>검색</button>
+            </form>
+            <div style="font-size: 10px;">
+                <span>🔔</span>
+                <label><span
+                        style="background-color: white; border-radius: 50%; margin: 5px; box-sizing: border-box;">🧑‍💻</span><span>홍길동</span></label>
+            </div>
+        </div>
+        <div class="box" id="side">
+            <div><h3>카테고리</h3></div>
+            <div><h3>가격대</h3></div>
+        </div>
+        <div class="box" id="contents">
+            <div class="widget">
+                위젯 1<div class="word">방문자 수: 1,234명</div>
+            </div>
+            <div class="widget">위젯 2
+                <div class="word">매출: 5,123,120원</div>
+            </div>
+            <div class="widget">
+                위젯 3<div class="word">신규 가입: 42명</div>
+            </div>
+            <div class="widget">
+                위젯 4<div class="word">서버 상태: 양호</div>
+            </div>
+            <div class="widget">
+                위젯 5<div class="word">최근 알림이 없습니다.</div>
+            </div>
+        </div>
+        <div class="box" id="footer">하단 영역~~</div>
+    </div>
+</body>
+
+</html>
