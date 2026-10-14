@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        dialog{
+            border: none;
+            border-radius: 5px;
+        }
+        dialog::backdrop{
+            /* background-color: rgba(0,0,0,0.5); */
+            backdrop-filter: blur(3px);
+        }
+        details{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="open">다이얼로그 열기</button>
+    <dialog id="myDialog">
+        <h3>다이얼로그!!</h3>
+        <p>간단하게 다이얼로그 띄우기~~</p>
+        <form method="dialog">
+            <button>열기</button>
+        </form>
+    </dialog>
+    <hr>
+
+    <details open>
+        <summary>Q. HTML은 얼마나 재밌나요?</summary>
+        <p>재밌습니다.</p>
+    </details>
+    <hr>
+    <picture>
+        <source media="(max-width: 600px)" srcset="../images/ryan3.jpg">
+        <source media="(max-width: 1024px)" srcset="../images/ryan2.jpg">
+        <img src="../images/ryan1.jpg">
+    </picture>
+
+</body>
+</html>
+<script>
+    let dialog = document.querySelector('#myDialog');
+    let btn = document.querySelector('#open');
+    btn.addEventListener("click", ()=>{
+        dialog.showModal();
+    })
+</script>
