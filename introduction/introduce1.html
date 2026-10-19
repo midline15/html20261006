@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Scroll Snap: Vertical</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@4.0.1/reset.min.css"
+    />
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            text-align: center;
+        }
+
+        .snap-container {
+            width: 100vw;
+            height: 100vh;
+            /* 화면 전체 높이 */
+            overflow-y: scroll;
+            /* 세로 스크롤 활성화 */
+            /* mandatory : 스크롤이 멈추면 중간에 멈추는거 없음. 무조건 가까운 요소로 이동.
+                proximity : 애매하게 걸칠 경우 그냥 멈춤. */
+
+            scroll-snap-type: y mandatory;
+        }
+
+        .snap-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+
+            scroll-snap-align: start;
+            /* 
+      always : 한 번에 여러 섹션을 넘어가는 것을 어느정도 방지
+      normal(기본값) : 휠을 세게 굴리면 여러 섹션 바로 지나감
+      */
+            scroll-snap-stop: always;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            width: 100%;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        header ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header li a {
+            text-decoration: none;
+            position: relative;
+            top: 0;
+            transition: top 0.3s ease;
+        }
+
+        header li a:hover {
+            top: -3px;
+        }
+
+        header .tooltip-text {
+            display: none;
+            position: absolute;
+            bottom: -30px;
+            left: -20px;
+            width: 70px;
+            height: 15px;
+            line-height: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 6px;
+            padding: 5px 0;
+            background: #FCD53F;
+            color: darkblue;
+        }
+
+        header a:hover .tooltip-text {
+            display: block;
+        }
+
+        .bg-1 {
+            background-color: #ff7675;
+        }
+
+        .bg-2 {
+            background-color: #74b9ff;
+        }
+
+        .bg-3 {
+            background-color: #55efc4;
+        }
+
+        .bg-4 {
+            background-color: #a29bfe;
+        }
+
+        .card {
+            width: 400px;
+            height: 500px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            border: 1px solid white;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgb(255 255 255 / 63%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="snap-container">
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#home">💻<span class="tooltip-text">Home</span></a>
+                    </li>
+                    <li>
+                        <a href="#about">💻<span class="tooltip-text">About</span></a>
+                    </li>
+                    <li>
+                        <a href="#favorite">💻<span class="tooltip-text">Favorite</span></a>
+                    </li>
+                    <li>
+                        <a href="#goal">💻<span class="tooltip-text">Goal</span></a>
+                    </li>
+                    <li>
+                        <a href="#contact">💻<span class="tooltip-text">Contact</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="home" class="snap-section bg-1">
+            <div class="card"></div>
+        </div>
+        <div id="about" class="snap-section bg-2">영상 2</div>
+        <div class="snap-section bg-3">영상 3</div>
+        <div class="snap-section bg-4">영상 4</div>
+    </div>
+
+</body>
+
+</html>

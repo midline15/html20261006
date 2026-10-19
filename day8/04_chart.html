@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@8.3.1/dist/apexcharts.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="chart"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수 - (key : value)
+                chart: null,
+                nameList: [],
+                heightList: []
+            };
+        },
+        methods: {
+            // 함수(메소드) - (key : function())
+            fnTest: function () {
+                let self = this;
+                $.ajax({
+                    url: "http://192.168.30.57:3000/student",
+                    dataType: "json",
+                    type: "GET",
+                    data: {},
+                    success: function (data) {
+                        console.log(data);
+                        for (let i = 0; i < data.list.length; i++) {
+                            self.nameList.push(data.list[i].STU_NAME);
+                            self.heightList.push(data.list[i].STU_HEIGHT);
+                        }
+                        console.log(self.nameList)
+                        console.log(self.heightList)
+                        self.fnChart();
+                    }
+                });
+            },
+            fnChart: function () {
+                let self = this;
+                var options = {
+                    series: [
+                        {
+                            name: 'height',
+                            data: self.heightList,//키 STU_HEIGHT
+                        },
+                    ],
+                    fill: {
+                        colors: [function ({ value, seriesIndex, w }) {
+                            if (value < 160) {
+                                return '#7E36AF'
+                            } else if (value >= 160 && value < 180) {
+                                return '#164666'
+                            } else {
+                                return '#D9534F'
+                            }
+                        }]
+                    },
+                    chart: {
+                        type: 'bar',
+                        height: 350,
+                    },
+                    plotOptions: {
+                        bar: {
+                            borderRadius: 4,
+                            borderRadiusApplication: 'end',
+                            horizontal: true,
+                        },
+                    },
+                    dataLabels: {
+                        enabled: false,
+                    },
+                    title: {
+                        text: '학생들 키',
+                        align: 'left',
+                    },
+                    xaxis: {
+                        categories: self.nameList, //이름STU_NAME
+                        labels: {
+                            formatter: function (val) {
+                                return val + 'cm'
+                            },
+                        },
+                    },
+                }
+
+                self.chart = new ApexCharts(document.querySelector('#chart'), options)
+                self.chart.render()
+            }
+        }, // methods
+        mounted() {
+            let self = this;
+            self.fnTest();
+        }
+    });
+
+    app.mount('#app');
+</script>

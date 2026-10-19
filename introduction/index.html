@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        body{
+            margin: 0;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #time {
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 100px;
+            font-size: 50px;
+            color: #375c77
+        }
+
+        .grad {
+            background: orange;
+            background: linear-gradient(to bottom,
+                    #65bf9e 0%,
+                    #dddddd 50%,
+                    #375c77 100%);
+        }
+
+        dialog {
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0);
+            text-align: center;
+        }
+
+        dialog::backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        dialog button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            margin: 20px;
+            padding: 10px;
+        }
+
+        dialog:focus {
+            outline: none;
+        }
+
+        #modal h1 {
+            font-size: 100px;
+            color: white;
+        }
+
+        #modal button:hover {
+            background-color: black;
+            cursor: pointer;
+        }
+
+
+        #time:hover {
+            cursor: pointer;
+            animation-play-state: paused;
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        #cursor {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            color: #121312;
+            opacity: 0;
+        }
+
+        #time:hover + #cursor {
+            opacity: 1;
+            animation: pump 0.5s infinite;
+        }
+
+        .pulse {
+            border-radius: 50px;
+            animation: pump 1s linear infinite;
+        }
+
+        @keyframes pump {
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div id="container" class="grad">
+            <div onclick="modal.showModal()" class="box">
+                <div id="time" class="pulse">{{time}}</div>
+                <p id="cursor">click</p>
+            </div>
+        </div>
+        
+        <dialog id="modal" tabindex="-1">
+            <h1>INTRODUE</h1>
+            <form method="dialog">
+                <button value="view">view</button>
+                <button value="close">close</button>
+            </form>
+        </dialog>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수 - (key : value)
+                time: ''
+            };
+        },
+        methods: {
+            // 함수(메소드) - (key : function())
+            fnTest: function () {
+                let self = this;
+                setInterval(() => {
+                    let datetime = new Date();
+                    let hh = datetime.getHours() < 10 ? '0' + datetime.getHours() : datetime.getHours();
+                    let mi = datetime.getMinutes();
+                    let ss = datetime.getSeconds();
+                    if (mi < 10) {
+                        mi = '0' + mi;
+                    }
+                    if (ss < 10) {
+                        ss = '0' + ss;
+                    }
+                    self.time = `${hh}:${mi}:${ss}`;
+                }, 1000);
+            }
+        }, // methods
+        mounted() {
+            let self = this;
+            self.fnTest();
+        }
+    });
+
+    app.mount('#app');
+
+    const modal = document.querySelector("#modal");
+
+    modal.addEventListener("close", () => {
+        if (modal.returnValue === "view") {
+            if (confirm('이동하시겠습니까?')) {
+                location.href = 'https://midline15.github.io/deploy202610/introduction/introduce.html';
+            } else {
+                return;
+            }
+        } else {
+            return;
+        }
+    });
+
+    const cursor = document.querySelector("#cursor");
+
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + 5 + "px";
+        cursor.style.top = e.clientY + 5 + "px";
+    });
+</script>

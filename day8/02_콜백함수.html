@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function test1(cb) {
+        $.ajax({
+            url: "http://192.168.30.57:3000/student",
+            dataType: "json",
+            type: "GET",
+            data: {},
+            success: function (data) {
+                console.log(data);
+                cb();
+            }
+        });
+    }
+
+    let test2 = function () {
+        console.log('test2')
+    }
+
+    // 화살표 함수(Arrow Function)
+    let test3 = () => {
+        console.log('test3');
+    }
+    test2();
+    test1(test3);
+    // test3();
+
+</script>
