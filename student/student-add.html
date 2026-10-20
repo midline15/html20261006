@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+            학번<input type="text" v-model="stuNo" :disabled="!isDuplicate">
+            <button @click="fnCheck" :disabled="!isDuplicate">중복체크</button>
+        </div>
+        <div>
+            이름<input type="text" v-model="stuName">
+        </div>
+        <div>
+            학과<input type="text" v-model="stuDept">
+        </div>
+        <div>
+            <button @click="fnAdd" :disabled="isDuplicate">추가</button>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                // 변수 - (key : value)
+                stuNo: '',
+                stuName: '',
+                stuDept: '',
+                isDuplicate: true
+            };
+        },
+        methods: {
+            // 함수(메소드) - (key : function())
+            fnCheck: function () {
+                let self = this;
+                const regex = /^[0-9]{8}$/;
+
+                if (!regex.test(self.stuNo)) {
+                    alert("숫자 8자리를 입력하세요.");
+                    return;
+                }
+                $.ajax({
+                    url: "http://localhost:3000/search",
+                    dataType: "json",
+                    type: "GET",
+                    data: { stuNo: self.stuNo },
+                    success: function (data) {
+                        if (data.info === undefined || data.info === null) {
+                            alert('사용 가능');
+                            self.isDuplicate = false;
+                        } else {
+                            alert('중복');
+                        }
+                    }
+                });
+            },
+            fnAdd: function () {
+                let self = this;
+                let param = {
+                    stuNo: self.stuNo,
+                    name: self.stuName,
+                    dept: self.stuDept
+                }
+                $.ajax({
+                    url: "http://localhost:3000/insert",
+                    dataType: "json",
+                    type: "GET",
+                    data: param,
+                    success: function (data) {
+                        alert(data.result);
+                        location.href = 'student-list.html';
+                    }
+                });
+            }
+        }, // methods
+        mounted() {
+            // 처음 시작할 때 실행되는 부분
+        }
+    });
+
+    app.mount('#app');
+</script>
