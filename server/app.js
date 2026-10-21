@@ -201,6 +201,24 @@ app.get('/login', async (req, res) => {
   }
 });
 
+app.get('/join', async (req, res) => {
+  const { stuNo, name, dept, gender } = req.query;
+
+  try {
+    await connection.execute(
+      `INSERT INTO STUDENT (STU_NO, STU_NAME, STU_DEPT, STU_GENDER) VALUES (:stuNo, :name, :dept, :gender)`,
+      [stuNo, name, dept, gender],
+      { autoCommit: true }
+    );
+    res.json({
+      result: "success"
+    });
+  } catch (error) {
+    console.error('Error executing insert', error);
+    res.status(500).send('Error executing insert');
+  }
+});
+
 // 서버 시작
 app.listen(3000, () => {
   console.log('Server is running on port 3000');
